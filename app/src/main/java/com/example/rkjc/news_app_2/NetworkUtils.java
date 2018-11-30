@@ -15,7 +15,11 @@ import java.util.Scanner;
 import java.util.Set;
 
 public class NetworkUtils {
+<<<<<<< HEAD
     public final static String base_url = "https://newsapi.org/v1/articles";
+=======
+    final static String base_url = "https://newsapi.org/v1/articles";
+>>>>>>> 1b5044fa0cc288143e9761e8f3b6a36153b9a5a3
 
     public static Map<String, String> query_parameter;
     static {

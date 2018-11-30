@@ -1,7 +1,10 @@
 package com.example.rkjc.news_app_2;
 
+<<<<<<< HEAD
 import com.example.rkjc.news_app_2.database.NewsItem;
 
+=======
+>>>>>>> 1b5044fa0cc288143e9761e8f3b6a36153b9a5a3
 import org.junit.Test;
 
 import java.util.ArrayList;
