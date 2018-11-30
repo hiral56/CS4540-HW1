@@ -1,14 +1,14 @@
 package com.example.rkjc.news_app_2;
 
 import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.example.rkjc.news_app_2.database.NewsItem;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +24,7 @@ public class NewsRecyclerViewAdapter  extends RecyclerView.Adapter<NewsRecyclerV
 
     private int nNumberItems;
 
-    private List<NewsItem> list_items;
+    public List<NewsItem> list_items;
 
     public interface ListItemClickListener {
         void onListItemClick(int clickedItemIndex);
@@ -51,10 +51,11 @@ public class NewsRecyclerViewAdapter  extends RecyclerView.Adapter<NewsRecyclerV
         View view = inflater.inflate(layoutIdForListItem, viewGroup, shouldAttachToParentImmediately);
         NewsItemViewHolder viewHolder = new NewsItemViewHolder(view);
 
-        viewHolder.newsTextTitle.setText("Title: "+list_items.get(viewHolderCount).getTitle());
-        viewHolder.newsTextDescription.setText("Description: "+list_items.get(viewHolderCount).getDescription());
-        viewHolder.newsTextTime.setText("Time: "+String.valueOf(list_items.get(viewHolderCount).getPublishedAt()));
-
+        if(!list_items.isEmpty()) {
+            viewHolder.newsTextTitle.setText("Title: " + list_items.get(viewHolderCount).getTitle());
+            viewHolder.newsTextDescription.setText("Description: " + list_items.get(viewHolderCount).getDescription());
+            viewHolder.newsTextTime.setText("Time: " + String.valueOf(list_items.get(viewHolderCount).getPublishedAt()));
+        }
         viewHolderCount++;
 
         Log.i(TAG, "onCreateViewHolder: number of ViewHolders created: " + viewHolderCount);
